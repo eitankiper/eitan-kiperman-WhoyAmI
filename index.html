@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eitan Kiperman — Program Management · Partnership Development · Startup Operations</title>
+<meta name="description" content="Eitan Kiperman — program management, partnership development and startup operations. Tel Aviv.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --espresso:#241812; --bark:#35251B; --walnut:#5A3E2B; --clay:#8A5530; --caramel:#D6A06F; --sandy:#E8C9A6;
+  --cream:#F8F2EA; --linen:#EFE5D8; --line:#DCCBB7; --text:#3A2E26; --soft:#5C4D42; --muted:#6B5C50;
+  --serif:'Fraunces', Georgia, serif; --sans:'Instrument Sans', system-ui, sans-serif; --mono:'IBM Plex Mono', ui-monospace, monospace;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;font-family:var(--sans);color:var(--text);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--clay)} a:hover{color:var(--espresso)}
+button{font:inherit;cursor:pointer}
+.wrap{max-width:1140px;margin:0 auto;padding:0 32px}
+.eyebrow{margin:0;font-family:var(--mono);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--clay)}
+h1,h2{font-family:var(--serif);font-weight:300;margin:0;letter-spacing:-.015em}
+h2{font-size:44px;line-height:1.1;color:var(--espresso)}
+h3{margin:0}
+p{margin:0}
+:focus-visible{outline:2px solid var(--caramel);outline-offset:3px;border-radius:3px}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:20;background:rgba(36,24,18,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(214,160,111,.18)}
+.nav .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
+.brand{background:none;border:0;padding:0;color:var(--cream);font-family:var(--serif);font-size:21px;font-weight:400}
+.links{display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px}
+.links button{background:none;border:0;color:#D9C7B4;font-size:14.5px;padding:8px 12px;border-radius:999px;transition:background .25s,color .25s}
+.links button:hover{color:var(--cream)}
+.links button.active{background:rgba(214,160,111,.16);color:var(--sandy)}
+.links .cta{background:var(--caramel);color:var(--espresso);font-weight:600;margin-left:8px}
+.links .cta:hover{background:var(--sandy);color:var(--espresso)}
+.progress{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:var(--caramel)}
+
+/* hero */
+.hero{background:var(--espresso);color:var(--cream);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-180px;top:-120px;width:620px;height:620px;border-radius:50%;border:1px solid rgba(214,160,111,.18);box-shadow:0 0 0 70px rgba(214,160,111,.035),0 0 0 140px rgba(214,160,111,.025)}
+.hero .wrap{position:relative;z-index:1;padding-top:104px;padding-bottom:120px;display:flex;flex-direction:column;gap:30px}
+.hero .eyebrow{color:var(--caramel)}
+.hero h1{max-width:900px;font-size:66px;line-height:1.04;color:var(--cream)}
+.hero h1 em{font-style:italic;color:var(--sandy)}
+.hero .lead{max-width:700px;font-size:18.5px;color:#D9C7B4}
+.ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:6px}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:50px;padding:0 26px;border-radius:999px;text-decoration:none;font-weight:600;border:1px solid transparent;transition:transform .25s var(--ease),background .25s,border-color .25s,color .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--caramel);color:var(--espresso)} .btn-primary:hover{background:var(--sandy);color:var(--espresso)}
+.btn-ghost{border-color:rgba(232,201,166,.45);color:var(--cream);background:transparent} .btn-ghost:hover{border-color:var(--sandy);color:var(--sandy)}
+.scrollhint{display:flex;align-items:center;gap:10px;margin-top:34px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:#B9A28C;background:none;border:0;padding:0;align-self:flex-start}
+.scrollhint span{display:block;width:1px;height:34px;background:linear-gradient(var(--caramel),transparent);animation:drip 2.2s var(--ease) infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* numbers */
+.numbers{background:var(--bark);color:var(--cream)}
+.numbers .wrap{padding-top:52px;padding-bottom:56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:32px}
+.stat{display:flex;flex-direction:column;gap:8px;padding-left:18px;border-left:1px solid rgba(214,160,111,.35)}
+.stat b{font-family:var(--serif);font-weight:300;font-size:46px;line-height:1;color:var(--sandy)}
+.stat > span{font-size:14.5px;color:#D3C0AC}
+
+/* about */
+.about .wrap{padding-top:112px;padding-bottom:104px;display:flex;flex-direction:column;gap:52px}
+.head{display:flex;flex-direction:column;gap:14px}
+.head p.sub{max-width:640px;font-size:17px;color:var(--soft)}
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.pillar{background:#FFFCF7;border:1px solid var(--line);border-radius:18px;padding:30px 28px;display:flex;flex-direction:column;gap:14px;transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s}
+.pillar:hover{transform:translateY(-6px);box-shadow:0 18px 40px -22px rgba(58,36,20,.35);border-color:var(--caramel)}
+.pillar .n{font-family:var(--serif);font-size:34px;font-weight:300;color:var(--caramel);line-height:1}
+.pillar h3{font-size:21px;font-weight:600;color:var(--espresso)}
+.pillar p{font-size:16px;color:var(--soft)}
+
+/* experience */
+.exp{background:var(--linen);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.exp .wrap{padding-top:104px;padding-bottom:104px;display:flex;flex-direction:column;gap:44px}
+.tabs{display:flex;flex-wrap:wrap;gap:28px}
+.tablist{flex:1 1 300px;display:flex;flex-direction:column;gap:6px;position:relative}
+.tab{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;background:transparent;border:0;border-left:2px solid var(--line);padding:14px 18px;border-radius:0 12px 12px 0;color:var(--soft);transition:background .3s,border-color .3s,color .3s}
+.tab:hover{background:rgba(255,252,247,.6);color:var(--espresso)}
+.tab[aria-selected="true"]{background:#FFFCF7;border-left-color:var(--clay);color:var(--espresso)}
+.tab .t{font-weight:600;font-size:16px}
+.tab .c{font-size:14px;color:var(--muted)}
+.tab .y{font-family:var(--mono);font-size:12px;color:var(--clay)}
+.panels{flex:999 1 520px;min-width:0}
+.panel{background:#FFFCF7;border:1px solid var(--line);border-radius:20px;padding:38px 40px;display:none}
+.panel.on{display:flex;flex-direction:column;gap:16px;animation:fadeup .5s var(--ease)}
+@keyframes fadeup{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.panel .y{font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;color:var(--clay)}
+.panel h3{font-family:var(--serif);font-weight:400;font-size:30px;line-height:1.15;color:var(--espresso)}
+.panel h3 span{color:var(--clay)}
+.panel p{font-size:16.5px;color:var(--soft)}
+.panel ul{margin:4px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px}
+.panel li{position:relative;padding-left:24px;font-size:16px;color:var(--text)}
+.panel li::before{content:"";position:absolute;left:0;top:.72em;width:12px;height:1px;background:var(--clay)}
+
+/* education + tools */
+.edu .wrap{padding-top:104px;padding-bottom:104px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:64px}
+.col{display:flex;flex-direction:column;gap:30px}
+.item{display:flex;flex-direction:column;gap:6px;padding-bottom:26px;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:0}
+.item h3{font-size:19px;font-weight:600;color:var(--espresso)}
+.item .meta{font-family:var(--mono);font-size:12.5px;color:var(--clay);letter-spacing:.04em}
+.item p{font-size:16px;color:var(--soft)}
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.filters button{background:transparent;border:1px solid var(--line);color:var(--soft);font-size:14px;padding:8px 14px;border-radius:999px;transition:all .25s}
+.filters button:hover{border-color:var(--clay);color:var(--espresso)}
+.filters button[aria-pressed="true"]{background:var(--espresso);border-color:var(--espresso);color:var(--cream)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:0;padding:0}
+.chips li{font-size:15px;padding:9px 16px;border:1px solid var(--line);background:#FFFCF7;border-radius:999px;color:var(--text);transition:opacity .35s,transform .35s var(--ease),background .35s,border-color .35s}
+.chips li.dim{opacity:.28;transform:scale(.96)}
+.chips li.hit{background:var(--sandy);border-color:var(--caramel)}
+.langs{display:flex;flex-wrap:wrap;gap:10px 26px;font-size:16px;color:var(--soft)}
+.langs b{color:var(--espresso);font-weight:600}
+
+/* contact */
+.contact{background:var(--espresso);color:var(--cream);position:relative;overflow:hidden}
+.contact::before{content:"";position:absolute;left:-200px;bottom:-260px;width:620px;height:620px;border-radius:50%;border:1px solid rgba(214,160,111,.16);box-shadow:0 0 0 80px rgba(214,160,111,.03)}
+.contact .wrap{position:relative;padding-top:112px;padding-bottom:48px;display:flex;flex-direction:column;gap:30px}
+.contact .eyebrow{color:var(--caramel)}
+.contact h2{max-width:980px;font-size:52px;color:var(--cream)}
+.contact h2 em{font-style:italic;color:var(--sandy)}
+.foot{margin-top:64px;padding-top:24px;border-top:1px solid rgba(214,160,111,.2);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:14px;color:#B9A28C}
+
+/* modal */
+.overlay{position:fixed;inset:0;z-index:50;background:rgba(24,15,10,.62);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s}
+.overlay.open{opacity:1;pointer-events:auto}
+.modal{width:100%;max-width:560px;max-height:calc(100vh - 40px);overflow:auto;background:var(--cream);border-radius:22px;box-shadow:0 30px 80px -20px rgba(0,0,0,.5);transform:translateY(18px) scale(.98);transition:transform .4s var(--ease)}
+.overlay.open .modal{transform:none}
+.mhead{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:28px 30px 0}
+.mhead h2{font-size:32px}
+.close{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#FFFCF7;color:var(--espresso);display:grid;place-items:center}
+.close:hover{border-color:var(--clay)}
+.mtabs{display:flex;gap:6px;margin:20px 30px 0;padding:4px;background:var(--linen);border-radius:999px}
+.mtabs button{flex:1;min-height:42px;border:0;border-radius:999px;background:transparent;color:var(--soft);font-weight:500;transition:background .25s,color .25s}
+.mtabs button[aria-selected="true"]{background:#FFFCF7;color:var(--espresso);box-shadow:0 1px 3px rgba(58,36,20,.12)}
+.mbody{padding:24px 30px 30px}
+.mpanel{display:none}.mpanel.on{display:block;animation:fadeup .35s var(--ease)}
+.drow{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+.drow:last-child{border-bottom:0}
+.drow small{display:block;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.drow .v{font-size:17px;color:var(--espresso);word-break:break-word}
+.drow a.v{color:var(--espresso);text-decoration-color:var(--caramel);text-underline-offset:4px}
+.copy{flex:none;min-height:40px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:#FFFCF7;color:var(--espresso);font-size:14px}
+.copy:hover{border-color:var(--clay)}
+.copy.done{background:var(--espresso);color:var(--cream);border-color:var(--espresso)}
+form{display:flex;flex-direction:column;gap:16px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:14px;font-weight:600;color:var(--espresso)}
+.field input,.field textarea{font:inherit;font-size:16px;color:var(--text);background:#FFFCF7;border:1px solid var(--line);border-radius:12px;padding:12px 14px;transition:border-color .2s,box-shadow .2s}
+.field textarea{min-height:130px;resize:vertical}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--clay);box-shadow:0 0 0 3px rgba(214,160,111,.25)}
+.field.bad input,.field.bad textarea{border-color:#A3402A}
+.err{font-size:13px;color:#A3402A;min-height:0}
+.formnote{font-size:13.5px;color:var(--muted)}
+.sent{display:none;flex-direction:column;gap:14px}
+.sent.on{display:flex;animation:fadeup .35s var(--ease)}
+.sent p{font-size:15.5px;color:var(--soft)}
+.preview{white-space:pre-wrap;font-size:14px;background:#FFFCF7;border:1px solid var(--line);border-radius:12px;padding:14px;color:var(--text);max-height:180px;overflow:auto}
+.row{display:flex;flex-wrap:wrap;gap:10px}
+.btn-dark{background:var(--espresso);color:var(--cream)} .btn-dark:hover{background:var(--walnut);color:var(--cream)}
+.btn-line{border-color:var(--line);color:var(--espresso);background:#FFFCF7} .btn-line:hover{border-color:var(--clay);color:var(--espresso)}
+
+@media (max-width:760px){
+  .wrap{padding:0 20px}
+  .hero .wrap{padding-top:72px;padding-bottom:84px}
+  .hero h1{font-size:42px}
+  .hero .lead{font-size:17px}
+  h2{font-size:34px}
+  .contact h2{font-size:36px}
+  .stat b{font-size:38px}
+  .about .wrap,.exp .wrap,.edu .wrap{padding-top:76px;padding-bottom:76px}
+  .links .nl{display:none}
+  .tablist{flex-direction:row;overflow-x:auto;gap:8px;padding-bottom:4px}
+  .tab{flex:0 0 auto;border-left:0;border-bottom:2px solid var(--line);border-radius:12px 12px 0 0;padding:10px 14px}
+  .tab[aria-selected="true"]{border-bottom-color:var(--clay)}
+  .tab .c{display:none}
+  .panel{padding:28px 22px}
+  .panel h3{font-size:25px}
+  .mhead,.mbody{padding-left:22px;padding-right:22px}.mtabs{margin-left:22px;margin-right:22px}
+}
+
+/* intro */
+.intro{background:var(--bark);color:var(--cream)}
+.intro .wrap{padding-top:64px;padding-bottom:68px;display:flex;flex-wrap:wrap;gap:36px 64px;align-items:center}
+.intro-text{flex:999 1 520px;display:flex;flex-direction:column;gap:14px}
+.intro-text .eyebrow{color:var(--caramel)}
+.intro .big{font-family:var(--serif);font-weight:300;font-size:28px;line-height:1.35;color:var(--cream)}
+.facts{flex:1 1 260px;margin:0;display:flex;flex-direction:column;gap:16px}
+.facts div{padding-left:18px;border-left:1px solid rgba(214,160,111,.35)}
+.facts dt{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--caramel)}
+.facts dd{margin:2px 0 0;font-size:16px;color:#E6D6C4}
+.pillar .proof{margin-top:auto;padding-top:14px;border-top:1px dashed var(--line);font-size:14.5px;color:var(--muted)}
+.metrics{display:flex;flex-wrap:wrap;gap:12px;margin:4px 0 6px}
+.metrics div{flex:1 1 150px;background:var(--linen);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:2px}
+.metrics b{font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.1;color:var(--clay)}
+.metrics span{font-size:13.5px;color:var(--muted)}
+/* beyond */
+.beyond{background:var(--linen);border-top:1px solid var(--line)}
+.beyond .wrap{padding-top:104px;padding-bottom:104px;display:flex;flex-direction:column;gap:44px}
+.bgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+.bcard{background:#FFFCF7;border:1px solid var(--line);border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:10px;transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s}
+.bcard:hover{transform:translateY(-6px);box-shadow:0 18px 40px -22px rgba(58,36,20,.35);border-color:var(--caramel)}
+.bcard .meta{font-family:var(--mono);font-size:12.5px;color:var(--clay);letter-spacing:.06em}
+.bcard h3{font-size:19px;font-weight:600;color:var(--espresso)}
+.bcard p{font-size:15.5px;color:var(--soft)}
+@media (max-width:760px){.intro .big{font-size:23px}.beyond .wrap{padding-top:76px;padding-bottom:76px}}
+
+/* roles */
+.roles{display:flex;flex-direction:column}
+.role{display:flex;flex-wrap:wrap;gap:10px 56px;padding:40px 0;border-top:1px solid var(--line)}
+.role:last-child{border-bottom:1px solid var(--line)}
+.role .when{flex:0 0 150px;font-family:var(--mono);font-size:13px;letter-spacing:.06em;color:var(--clay);padding-top:6px}
+.role .what{flex:999 1 560px;min-width:0;display:flex;flex-direction:column;gap:12px}
+.role h3{font-family:var(--serif);font-weight:400;font-size:27px;line-height:1.2;color:var(--espresso)}
+.role h3 span{color:var(--clay)}
+.role p{font-size:16.5px;color:var(--soft)}
+.role ul{margin:2px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.role li{position:relative;padding-left:24px;font-size:16px;color:var(--text)}
+.role li::before{content:"";position:absolute;left:0;top:.72em;width:12px;height:1px;background:var(--clay)}
+.role .metrics div{flex:0 1 210px;background:#FFFCF7;border:1px solid var(--line)}
+.role:hover h3 span{color:var(--espresso)}
+h2.solo{font-size:34px}
+@media (max-width:760px){.role .when{flex-basis:100%}.role h3{font-size:23px}h2.solo{font-size:28px}}
+
+/* experience: tabs side by side, selected panel below */
+.exp .tabs{flex-direction:column;gap:18px}
+.exp .tablist{flex:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.exp .tab{border:1px solid var(--line);border-bottom:3px solid var(--line);border-radius:16px;padding:18px 20px;background:rgba(255,252,247,.45);gap:4px;transition:background .3s,border-color .3s,transform .3s var(--ease)}
+.exp .tab:hover{transform:translateY(-3px);background:#FFFCF7}
+.exp .tab[aria-selected="true"]{background:#FFFCF7;border-color:var(--line);border-bottom-color:var(--clay);box-shadow:0 14px 30px -22px rgba(58,36,20,.45)}
+.exp .tab .c{display:block}
+.exp .panels{flex:none}
+@media (max-width:900px){.exp .tablist{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.exp .tablist{grid-template-columns:1fr 1fr}.exp .tab{padding:14px}.exp .tab .c{font-size:13px}}
+
+/* story */
+.story{background:var(--cream);border-top:1px solid var(--line)}
+.story .wrap{padding-top:120px;padding-bottom:120px;display:flex;flex-wrap:wrap;gap:48px 72px;align-items:flex-start}
+.story-side{flex:1 1 320px;position:sticky;top:110px;display:flex;flex-direction:column;gap:18px}
+.story-side h2{font-size:42px;line-height:1.12}
+.story-side h2 em{font-style:italic;color:var(--clay)}
+.story-bar{height:2px;background:var(--line);border-radius:2px;overflow:hidden;max-width:280px;margin-top:8px}
+.story-bar span{display:block;height:100%;width:0;background:var(--clay);transition:width .15s linear}
+.story-body{flex:999 1 520px;min-width:0;display:flex;flex-direction:column;gap:56px;padding:4vh 0 6vh}
+.sp{font-family:var(--serif);font-weight:300;font-size:27px;line-height:1.45;color:var(--espresso);opacity:.22;transform:translateY(16px);transition:opacity .5s var(--ease),transform .6s var(--ease)}
+.sp.lit{opacity:1;transform:none}
+.sp.lead-line{font-size:40px;line-height:1.2;font-weight:400}
+.sp.closing{font-style:italic;color:var(--clay)}
+@media (prefers-reduced-motion:reduce){.sp{opacity:1;transform:none}}
+@media (max-width:760px){.story .wrap{padding-top:80px;padding-bottom:80px}.story-side{position:static}.story-side h2{font-size:32px}.sp{font-size:22px}.sp.lead-line{font-size:30px}.story-body{gap:36px;padding:0}}
+
+#chapter{transition:opacity .18s,transform .18s}
+#chapter.swap{opacity:0;transform:translateY(8px)}
+.story-side h2#chapter{font-size:46px}
+@media (max-width:1000px){.story-side{position:sticky;top:64px;z-index:2;background:var(--cream);padding:14px 0 12px;flex-basis:100%}.story-side h2#chapter{font-size:30px}.story-side h2{font-size:30px}}
+@media (max-width:760px){.story-side h2#chapter{font-size:26px}}
+.sp.gone{opacity:0 !important;transition:opacity .25s}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <button class="brand" data-go="top">Eitan Kiperman</button>
+    <div class="links">
+      <button class="nl" data-go="about">About</button>
+      <button class="nl" data-go="why">Who am I</button>
+      <button class="nl" data-go="experience">Experience</button>
+      <button class="nl" data-go="education">Education</button>
+      <button class="nl" data-go="beyond">More</button>
+      <button class="cta" data-contact>Contact</button>
+    </div>
+  </div>
+  <div class="progress" id="progress"></div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow reveal">Marketing · Content · Community · Partnerships</p>
+    <h1 class="reveal d1">Telling stories and <em>bringing people together.</em></h1>
+    <p class="lead reveal d2">Multilingual project manager with five years of experience running international programs, partnerships and communities, and now scaling operations at Oriient, a fast-growing startup. Strong in communication, content and presentations, and a quick learner who adapts easily to new challenges.</p>
+    <div class="ctas reveal d3">
+      <button class="btn btn-primary" data-contact>Get in touch</button>
+    </div>
+    <button class="scrollhint reveal d3" data-go="numbers"><span></span>SCROLL</button>
+  </div>
+</header>
+
+<main>
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="head reveal">
+        <h2>How I can help</h2>
+      </div>
+      <div class="pillars">
+        <div class="pillar reveal">
+          <span class="n">01</span>
+          <h3>Community &amp; events</h3>
+          <p>Getting the right people in the same room, ensuring that time is well spent and that the new relationships last and flourish.</p>
+          <p class="proof">I've produced high-profile seminars and overseas delegations of 50 people, from logistics to content.</p>
+        </div>
+        <div class="pillar reveal d1">
+          <span class="n">02</span>
+          <h3>Content &amp; storytelling</h3>
+          <p>Finding the story behind a project and telling it well, from the first idea for a post to the final visual, in the right tone for each channel.</p>
+          <p class="proof">I ran all social media and outreach for an international fellowship and managed the LinkedIn page of the Embassy of Israel in Buenos Aires.</p>
+        </div>
+        <div class="pillar reveal d2">
+          <span class="n">03</span>
+          <h3>Projects &amp; operations</h3>
+          <p>Turning an idea into something real and making sure it runs: the details, the deadlines, and the tools that make the work faster.</p>
+          <p class="proof">At Oriient I helped scale client-facing graphic output from 10 to 300 deliverables a week in three months, and I help build our internal systems with automation and AI tools.</p>
+        </div>
+        <div class="pillar reveal d3">
+          <span class="n">04</span>
+          <h3>Deep tech &amp; AI</h3>
+          <p>Following new technologies closely and bridging the gap between scientists, engineers and the rest of the world, with simple, clear and understandable communication.</p>
+          <p class="proof">M.A. in Cyber Politics and Government from Tel Aviv University, with courses on innovation ecosystems and AI and Big Data economics.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="story" id="why" aria-label="Who am I">
+    <div class="wrap">
+      <div class="story-side">
+        <p class="eyebrow" id="chapno">01 / 03</p>
+        <h2 id="chapter">Who am I?</h2>
+        <div class="story-bar" aria-hidden="true"><span id="storybar"></span></div>
+      </div>
+      <div class="story-body">
+        <p class="sp" data-ch="Who am I?">I'm Eitan. Argentinian, Israeli for the last three years. Football fan, saxophone player, amateur actor and, lately, fiction writer.</p>
+        <p class="sp lead-line" data-ch="The honest part">Let's get this out of the way: I'm not a graphic designer, and I don't have a marketing degree.</p>
+        <p class="sp" data-ch="The honest part">I'm probably not who you pictured for this role. Do I know the tools and have the skills to do it? Yes, but that's not really my point.</p>
+        <p class="sp" data-ch="The honest part">I am a storyteller, who gets things done. I reach people. I go looking for connections, and I know how to make them. I'll obsess over a flyer until it's perfect, and then I'll make sure it actually lands.</p>
+        <p class="sp" data-ch="Why deep tech">I've always been into space and astrophysics, and I like keeping up with what's new. I'm curious about how far we can get with the tools we have, and I think deep tech plays a big part in how we keep moving forward as a society.</p>
+        <p class="sp" data-ch="Why deep tech">I studied these ecosystems in my master's, and now it's time to tell their stories, your story.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="exp" id="experience">
+    <div class="wrap">
+      <div class="head reveal">
+        <p class="eyebrow">Experience</p>
+        <h2>Where I've worked</h2>
+      </div>
+      <div class="tabs reveal d1">
+        <div class="tablist" role="tablist" aria-label="Roles">
+          <button class="tab" role="tab" id="t0" aria-controls="p0" aria-selected="true"><span class="y">2025 — Present</span><span class="t">Oriient</span><span class="c">Graphic Operations Manager</span></button>
+          <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="false" tabindex="-1"><span class="y">2024 — 2025</span><span class="t">Aardvark Israel</span><span class="c">Special Programs &amp; Logistics</span></button>
+          <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1"><span class="y">2020 — 2023</span><span class="t">Diller Teen Fellows</span><span class="c">Program and Ecosystem Manager</span></button>
+          <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1"><span class="y">2019 — 2020</span><span class="t">EY</span><span class="c">Tax Analyst</span></button>
+        </div>
+        <div class="panels">
+          <article class="panel on" role="tabpanel" id="p0" aria-labelledby="t0">
+            <span class="y">2025 — PRESENT</span>
+            <h3>Graphic Operations Manager <span>· Oriient</span></h3>
+            <p>Indoor-navigation startup in a fast-growth phase, delivering for some of the world's largest retailers and leaders in their markets.</p>
+            <div class="metrics"><div><b>10 → 300</b><span>client-facing graphic deliverables per week, scaled in three months</span></div></div>
+            <ul>
+              <li>Scaled the operation behind our client-facing graphic deliverables from 10 to 300 a week in three months.</li>
+              <li>Lead a team of 13 graphic designers through complex, high-volume projects under tight deadlines.</li>
+              <li>Own end-to-end delivery workflows for indoor mapping projects, setting the visual quality and delivery standards for global clients.</li>
+              <li>Play a central role in building internal systems and automations, leveraging several automation tools and AI agents, that keep processes running in the most efficient manner.</li>
+              <li>Act as the main coordination point between internal teams, external vendors, QA and client-facing stakeholders.</li>
+              <li>Analyze operational data and delivery gaps to reduce errors and improve client-facing outcomes.</li>
+            </ul>
+          </article>
+          <article class="panel" role="tabpanel" id="p1" aria-labelledby="t1">
+            <span class="y">2024 — 2025</span>
+            <h3>Special Programs &amp; Logistics Coordinator <span>· Aardvark Israel</span></h3>
+            <ul>
+              <li>Coordinated a gap-year innovation program for young adults, giving participants exposure to a range of startups in Israel's tech ecosystem.</li>
+              <li>Organized and coordinated the startup visits, working with the companies hosting the group.</li>
+              <li>Ran general logistics for the program and its activities: schedules, vendors and day-to-day operations on the ground.</li>
+              <li>Managed relationships with local partners, vendors and clients.</li>
+            </ul>
+          </article>
+          <article class="panel" role="tabpanel" id="p2" aria-labelledby="t2">
+            <span class="y">2020 — 2023</span>
+            <h3>Program and Ecosystem Manager, Diller Teen Fellows <span>· BAMA Foundation</span></h3>
+            <p>International leadership fellowship program.</p>
+            <div class="metrics"><div><b>50</b><span>participants per overseas delegation</span></div><div><b>10</b><span>remote staff managed</span></div><div><b>USD 100K</b><span>program budget</span></div></div>
+            <ul>
+              <li>Managed long-term relationships with participants, families, partner organizations and international stakeholders, keeping engagement and satisfaction high.</li>
+              <li>Fully owned the program's social media and outreach, planning and creating all Instagram content.</li>
+              <li>Produced high-profile seminars and overseas delegations of 50 participants, from logistics to content.</li>
+              <li>Managed a remote team of 10 staff and a USD 100,000 program budget, working with a network of partners abroad.</li>
+              <li>Delivered presentations and training sessions to diverse audiences in Spanish, English and Hebrew.</li>
+            </ul>
+          </article>
+          <article class="panel" role="tabpanel" id="p3" aria-labelledby="t3">
+            <span class="y">2019 — 2020</span>
+            <h3>Tax Analyst <span>· EY Global Delivery Services</span></h3>
+            <ul>
+              <li>Prepared financial statements, tax returns and quarterly estimates for US companies in a global team with peers in the US and India.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="edu" id="education">
+    <div class="wrap">
+      <div class="col">
+        <div class="head reveal">
+          <h2 class="solo">Education</h2>
+        </div>
+        <div class="item reveal">
+          <span class="meta">TEL AVIV UNIVERSITY · 2024 — 2025</span>
+          <h3>M.A., Cyber Politics and Government</h3>
+          <p>Cybersecurity, AI, tech policy and innovation ecosystems.</p>
+        </div>
+        <div class="item reveal">
+          <span class="meta">TORCUATO DI TELLA UNIVERSITY, BUENOS AIRES · 2015 — 2019</span>
+          <h3>B.A., International Studies</h3>
+          <p>Minor in Talent Management.</p>
+        </div>
+        <div class="item reveal">
+          <span class="meta">INT COLLEGE (JOLT) · 2024</span>
+          <h3>Data Analysis</h3>
+        </div>
+      </div>
+      <div class="col">
+        <div class="head reveal">
+          <h2 class="solo">Toolkit</h2>
+        </div>
+        <div class="filters reveal" role="group" aria-label="Filter tools">
+          <button aria-pressed="true" data-f="all">All</button>
+          <button aria-pressed="false" data-f="design">Content &amp; design</button>
+          <button aria-pressed="false" data-f="web">Web &amp; email</button>
+          <button aria-pressed="false" data-f="crm">CRM &amp; PM</button>
+          <button aria-pressed="false" data-f="data">Data &amp; automation</button>
+        </div>
+        <ul class="chips reveal" id="chips">
+          <li data-g="design">Canva</li><li data-g="design">Figma</li><li data-g="design">Illustrator</li><li data-g="design">CapCut</li>
+          <li data-g="web">WordPress</li><li data-g="web">Wix</li><li data-g="web">Mailchimp</li>
+          <li data-g="crm">Salesforce</li><li data-g="crm">Airtable</li><li data-g="crm">Monday</li><li data-g="crm">Jira</li>
+          <li data-g="data">Excel</li><li data-g="data">SQL</li><li data-g="data">Power BI</li><li data-g="data">Google Apps Script</li><li data-g="data">AI tools</li>
+        </ul>
+        <div class="item reveal" style="border-bottom:0;padding-top:8px">
+          <span class="meta">LANGUAGES</span>
+          <div class="langs"><span><b>English</b> fluent</span><span><b>Hebrew</b> fluent</span><span><b>Spanish</b> native</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="beyond" id="beyond">
+    <div class="wrap">
+      <div class="head reveal">
+        <h2 class="solo">Internships &amp; volunteering</h2>
+      </div>
+      <div class="bgrid">
+        <article class="bcard reveal">
+          <span class="meta">2018</span>
+          <h3>Intern, Embassy of Israel in Buenos Aires</h3>
+          <p>Supported the embassy's team and managed its LinkedIn page.</p>
+        </article>
+        <article class="bcard reveal d1">
+          <span class="meta">2018</span>
+          <h3>Political Analyst, G20 Summit</h3>
+          <p>Covered the G20 Summit in Buenos Aires as an analyst for Global Policy Journal.</p>
+        </article>
+        <article class="bcard reveal d2">
+          <span class="meta">2014 — 2020</span>
+          <h3>Group Leader, CISSAB</h3>
+          <p>Six years leading groups as a volunteer.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow reveal">Contact</p>
+    <h2 class="reveal d1">Want to do something together? <em>Let's talk!</em></h2>
+    <div class="ctas reveal d2">
+      <button class="btn btn-primary" data-contact data-tab="msg">Send a message</button>
+      <button class="btn btn-ghost" data-contact>Contact details</button>
+    </div>
+    <div class="foot"><span>Eitan Kiperman · Tel Aviv, Israel</span><span>eikiperman@gmail.com · +972 51-579-4752 · <a href="https://www.linkedin.com/in/eitan-kiperman/" target="_blank" rel="noopener" style="color:inherit">LinkedIn</a></span></div>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="mtitle">
+    <div class="mhead">
+      <div>
+        <p class="eyebrow">Get in touch</p>
+        <h2 id="mtitle">Let's talk</h2>
+      </div>
+      <button class="close" id="close" aria-label="Close">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13"/></svg>
+      </button>
+    </div>
+    <div class="mtabs" role="tablist" aria-label="Contact options">
+      <button role="tab" id="mt0" aria-controls="mp0" aria-selected="true">Contact details</button>
+      <button role="tab" id="mt1" aria-controls="mp1" aria-selected="false">Send a message</button>
+    </div>
+    <div class="mbody">
+      <div class="mpanel on" id="mp0" role="tabpanel" aria-labelledby="mt0">
+        <div class="drow"><div><small>Email</small><span class="v">eikiperman@gmail.com</span></div><button class="copy" data-copy="eikiperman@gmail.com">Copy</button></div>
+        <div class="drow"><div><small>Phone</small><span class="v">+972 51-579-4752</span></div><button class="copy" data-copy="+972 51-579-4752">Copy</button></div>
+        <div class="drow"><div><small>LinkedIn</small><a class="v" href="https://www.linkedin.com/in/eitan-kiperman/" target="_blank" rel="noopener">linkedin.com/in/eitan-kiperman</a></div><button class="copy" data-copy="https://www.linkedin.com/in/eitan-kiperman/">Copy</button></div>
+        <div class="drow"><div><small>Based in</small><span class="v">Tel Aviv, Israel</span></div></div>
+      </div>
+      <div class="mpanel" id="mp1" role="tabpanel" aria-labelledby="mt1">
+        <form id="form" novalidate>
+          <div class="field"><label for="fname">Full name</label><input id="fname" name="name" autocomplete="name" required><span class="err" id="e-fname"></span></div>
+          <div class="field"><label for="femail">Email</label><input id="femail" name="email" type="email" autocomplete="email" required><span class="err" id="e-femail"></span></div>
+          <div class="field"><label for="fmsg">Message</label><textarea id="fmsg" name="message" required></textarea><span class="err" id="e-fmsg"></span></div>
+          <button class="btn btn-dark" type="submit" id="send">Send message</button>
+          <p class="formnote" id="formnote"></p>
+        </form>
+        <div class="sent" id="sent" aria-live="polite">
+          <h3 id="sentTitle" style="font-family:var(--serif);font-weight:400;font-size:24px;color:var(--espresso)">Thanks!</h3>
+          <p id="sentText"></p>
+          <div class="preview" id="preview" hidden></div>
+          <div class="row" id="fallback" hidden>
+            <a class="btn btn-dark" id="mailto" href="#">Open in your email app</a>
+            <button class="btn btn-line" id="copymsg" type="button">Copy message</button>
+          </div>
+          <p class="formnote" id="fallbacknote" hidden>Or send it to <b>eikiperman@gmail.com</b>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* Where the form delivers messages. Set this to a form-to-email endpoint
+   (e.g. a Formspree form URL) when the site is hosted on your own domain.
+   Left empty, the form prepares the message for the visitor's email app. */
+const FORM_ENDPOINT = "";
+const OWNER_EMAIL = "eikiperman@gmail.com";
+
+(function(){
+  const $ = (s, r=document) => r.querySelector(s);
+  const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+  const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* smooth section navigation */
+  function go(id){
+    const el = document.getElementById(id); if(!el) return;
+    const y = el.getBoundingClientRect().top + window.scrollY - (id==='top'?0:56);
+    window.scrollTo({top: y, behavior: reduce ? 'auto' : 'smooth'});
+  }
+  $$('[data-go]').forEach(b => b.addEventListener('click', () => go(b.dataset.go)));
+
+  /* reveal on scroll */
+  const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => {
+    es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold: .12, rootMargin: '0px 0px -40px 0px'}) : null;
+  $$('.reveal').forEach(el => io ? io.observe(el) : el.classList.add('in'));
+
+  /* count up */
+  const counted = new WeakSet();
+  function countUp(el){
+    if(counted.has(el)) return; counted.add(el);
+    const end = +el.dataset.count; if(reduce){ el.textContent = end; return; }
+    const t0 = performance.now(), dur = 1200;
+    (function step(t){ const k = Math.min(1,(t-t0)/dur), e = 1-Math.pow(1-k,3);
+      el.textContent = Math.round(end*e); if(k<1) requestAnimationFrame(step); })(t0);
+  }
+  const cio = 'IntersectionObserver' in window ? new IntersectionObserver(es => {
+    es.forEach(e => { if(e.isIntersecting){ $$('[data-count]', e.target).forEach(countUp); if(e.target.dataset.count) countUp(e.target); } });
+  }, {threshold: .4}) : null;
+  if(cio) $$('.stat').forEach(s => cio.observe(s));
+
+  /* active nav + progress */
+  const navMap = {about:'about', why:'why', experience:'experience', education:'education', beyond:'beyond'};
+  const navBtns = $$('.links .nl');
+  function onScroll(){
+    const h = document.documentElement.scrollHeight - innerHeight;
+    $('#progress').style.width = (h>0 ? (scrollY/h*100) : 0) + '%';
+    let cur = null;
+    Object.keys(navMap).forEach(id => { const el = document.getElementById(id); if(el && el.getBoundingClientRect().top < innerHeight*0.4) cur = id; });
+    navBtns.forEach(b => b.classList.toggle('active', b.dataset.go === cur));
+  }
+  addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  /* story: light up the paragraph nearest the middle of the screen */
+  const sps = $$('.sp'), bar = $('#storybar'), storyBody = $('.story-body'), chapterEl = $('#chapter'), chapNo = $('#chapno'), storySide = $('.story-side');
+  const chapters = [...new Set(sps.map(p => p.dataset.ch))];
+  function story(){
+    if(reduce){ sps.forEach(p => p.classList.add('lit')); return; }
+    const mid = innerHeight * 0.55;
+    let ch = sps[0].dataset.ch;
+    const sr = storySide.getBoundingClientRect(), stacked = Math.abs(sr.left - storyBody.getBoundingClientRect().left) < 4;
+    sps.forEach(p => { const r = p.getBoundingClientRect(); const on = r.top < mid + 40; p.classList.toggle('lit', on); if(on) ch = p.dataset.ch;
+      p.classList.toggle('gone', stacked && r.top < sr.bottom + 12); });
+    if(chapterEl.textContent !== ch){
+      chapterEl.classList.add('swap');
+      setTimeout(() => { chapterEl.textContent = ch; chapNo.textContent = '0' + (chapters.indexOf(ch)+1) + ' / 0' + chapters.length; chapterEl.classList.remove('swap'); }, 180);
+    }
+    const r = storyBody.getBoundingClientRect();
+    const k = Math.min(1, Math.max(0, (mid - r.top) / r.height));
+    bar.style.width = (k*100) + '%';
+  }
+  addEventListener('scroll', story, {passive:true}); addEventListener('resize', story); story();
+
+
+  /* experience tabs */
+  function tabs(listSel, panelOf){
+    const ts = $$(listSel);
+    function sel(i, focus){
+      ts.forEach((t,j) => { const on = i===j; t.setAttribute('aria-selected', on); t.tabIndex = on?0:-1;
+        const p = panelOf(t); p.classList.toggle('on', on); });
+      if(focus) ts[i].focus();
+    }
+    ts.forEach((t,i) => {
+      t.addEventListener('click', () => sel(i));
+      t.addEventListener('keydown', e => {
+        const k = e.key; let n = null;
+        if(k==='ArrowDown'||k==='ArrowRight') n=(i+1)%ts.length;
+        if(k==='ArrowUp'||k==='ArrowLeft') n=(i-1+ts.length)%ts.length;
+        if(n!==null){ e.preventDefault(); sel(n,true); }
+      });
+    });
+    return sel;
+  }
+  tabs('.tablist .tab', t => document.getElementById(t.getAttribute('aria-controls')));
+  const selModal = tabs('.mtabs button', t => document.getElementById(t.getAttribute('aria-controls')));
+
+  /* tool filters */
+  $$('.filters button').forEach(b => b.addEventListener('click', () => {
+    $$('.filters button').forEach(x => x.setAttribute('aria-pressed', x===b));
+    const f = b.dataset.f;
+    $$('#chips li').forEach(li => { const m = f==='all' || li.dataset.g===f;
+      li.classList.toggle('dim', !m); li.classList.toggle('hit', m && f!=='all'); });
+  }));
+
+  /* modal */
+  const ov = $('#overlay'); let lastFocus = null;
+  function openModal(tab){
+    lastFocus = document.activeElement;
+    if($('#sent').classList.contains('on')){ form.reset(); form.hidden = false; $('#sent').classList.remove('on');
+      $('#preview').hidden = true; $('#fallback').hidden = true; $('#fallbacknote').hidden = true;
+      const sb = $('#send'); sb.disabled = false; sb.textContent = 'Send message'; }
+    selModal(tab==='msg' ? 1 : 0);
+    ov.classList.add('open'); ov.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => (tab==='msg' ? $('#fname') : $('#close')).focus(), 60);
+  }
+  function closeModal(){
+    ov.classList.remove('open'); ov.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+    if(lastFocus) lastFocus.focus();
+  }
+  $$('[data-contact]').forEach(b => b.addEventListener('click', () => openModal(b.dataset.tab)));
+  $('#close').addEventListener('click', closeModal);
+  ov.addEventListener('click', e => { if(e.target===ov) closeModal(); });
+  document.addEventListener('keydown', e => { if(e.key==='Escape' && ov.classList.contains('open')) closeModal(); });
+  ov.addEventListener('keydown', e => {
+    if(e.key==='Tab'){ const f = $$('button, a[href], input, textarea', ov).filter(x => x.offsetParent!==null);
+      if(!f.length) return; const a=f[0], z=f[f.length-1];
+      if(e.shiftKey && document.activeElement===a){ e.preventDefault(); z.focus(); }
+      else if(!e.shiftKey && document.activeElement===z){ e.preventDefault(); a.focus(); } }
+  });
+
+  /* copy buttons */
+  async function copyText(text, btn, label){
+    try{ await navigator.clipboard.writeText(text); }
+    catch(_){ const ta=document.createElement('textarea'); ta.value=text; ta.style.position='fixed'; ta.style.opacity='0';
+      document.body.appendChild(ta); ta.select(); try{ document.execCommand('copy'); }catch(__){} ta.remove(); }
+    const old = btn.textContent; btn.textContent = label || 'Copied'; btn.classList.add('done');
+    setTimeout(() => { btn.textContent = old; btn.classList.remove('done'); }, 1600);
+  }
+  $$('.copy').forEach(b => b.addEventListener('click', () => copyText(b.dataset.copy, b)));
+
+  /* form */
+  const form = $('#form');
+  const rules = [
+    ['fname', v => v.trim().split(/\s+/).length >= 2 ? '' : 'Please enter your full name (first and last).'],
+    ['femail', v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) ? '' : 'Please enter a valid email address.'],
+    ['fmsg', v => v.trim().length >= 10 ? '' : 'Please write a short message.']
+  ];
+  function check(id){
+    const r = rules.find(x => x[0]===id); const el = document.getElementById(id);
+    const msg = r[1](el.value); $('#e-'+id).textContent = msg;
+    el.closest('.field').classList.toggle('bad', !!msg); el.setAttribute('aria-invalid', !!msg);
+    return !msg;
+  }
+  rules.forEach(([id]) => document.getElementById(id).addEventListener('blur', () => { if(document.getElementById(id).value) check(id); }));
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const ok = rules.map(([id]) => check(id)).every(Boolean);
+    if(!ok){ const bad = form.querySelector('.bad input, .bad textarea'); if(bad) bad.focus(); return; }
+    const name = $('#fname').value.trim(), email = $('#femail').value.trim(), message = $('#fmsg').value.trim();
+    const btn = $('#send');
+    if(FORM_ENDPOINT){
+      btn.disabled = true; btn.textContent = 'Sending…';
+      try{
+        const res = await fetch(FORM_ENDPOINT, {method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
+          body: JSON.stringify({name, email, message, _subject: 'Website message from ' + name})});
+        if(!res.ok) throw new Error(res.status);
+        showSent(true, name, email, message); return;
+      }catch(_){ btn.disabled = false; btn.textContent = 'Send message'; }
+    }
+    showSent(false, name, email, message);
+  });
+  function showSent(delivered, name, email, message){
+    form.hidden = true; $('#sent').classList.add('on');
+    setTimeout(() => { const f = delivered ? $('#close') : $('#mailto'); f.focus(); }, 30);
+    if(delivered){
+      $('#sentTitle').textContent = 'Message sent';
+      $('#sentText').textContent = 'Thanks, ' + name.split(' ')[0] + '. I’ll get back to you at ' + email + '.';
+      return;
+    }
+    const subject = 'Message from ' + name;
+    const body = message + '\n\n—\n' + name + '\n' + email;
+    $('#sentTitle').textContent = 'Your message is ready';
+    $('#sentText').textContent = 'One last step: send it from your email app, or copy it and send it to ' + OWNER_EMAIL + '.';
+    const pv = $('#preview'); pv.hidden = false; pv.textContent = 'To: ' + OWNER_EMAIL + '\nSubject: ' + subject + '\n\n' + body;
+    $('#fallback').hidden = false; $('#fallbacknote').hidden = false;
+    $('#mailto').href = 'mailto:' + OWNER_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    $('#copymsg').onclick = () => copyText('To: ' + OWNER_EMAIL + '\nSubject: ' + subject + '\n\n' + body, $('#copymsg'));
+  }
+})();
+</script>
+</body>
+</html>
